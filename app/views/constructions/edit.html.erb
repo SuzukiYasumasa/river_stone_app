@@ -1,6 +1,21 @@
-<h1>Editing Construction</h1>
+<%= form_with(model: @construction, local: true) do |form| %>
+  <% if @construction.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @construction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form', construction: @construction %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
 
-<%= link_to 'Show', @construction %> |
-<%= link_to 'Back', constructions_path %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to '一覧へ戻る', constructions_path %>
