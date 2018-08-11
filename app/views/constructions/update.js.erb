@@ -1,0 +1,5 @@
+$(".error_msg").remove();
+$(".success_msg").remove();
+$(".flash_msg").remove();
+$(".model-val-error").remove(); 
+$('#<%= params[:id] %>').html("<%= escape_javascript(render 'update_content') %>");

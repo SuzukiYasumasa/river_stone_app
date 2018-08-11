@@ -4,13 +4,19 @@
     <title>RiverStoneApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset="utf-8">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shiv' %>
   </head>
 
   <body>
     <div class="container">
+      <div class="row mt-3">
+        <% flash.each do |key, value| %>
+          <div class="col-12 alert <%= bootstrap_class_for(key) %> flash_msg"><%= value %></div>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>

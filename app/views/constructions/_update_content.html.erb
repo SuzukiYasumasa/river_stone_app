@@ -1,0 +1,24 @@
+<% if @construction.errors.any? %>
+  <div class="row error_msg alert alert-danger mb-0 mt-3">
+    <ul>
+    <% @construction.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="row success_msg alert alert-success mb-0 mt-3">
+    変更しました。
+  </div>
+<% end %>
+
+<%= form_with(model: @construction) do |form| %>
+  <div class="row table-data-bottom bg-table-primary mt-2 d-flex align-items-center">
+    <div class="col-12 col-md-5 col-lg-5 py-2"><%= @construction.name %></div>
+    <div class="col-8 col-md-4 col-lg-5 field py-2"><%= form.text_field :name, class: "form-control" %></div>
+    <div class="col-3 col-lg-2 actions py-2">
+      <%= form.submit '変更', class: "btn btn-outline-info btn-sm" %>
+      <%= link_to(@construction, method: :delete, data: { confirm: '本当に削除しますか?' }) do %><div class="btn btn-outline-danger btn-sm">削除</div><% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,4 +1,110 @@
+$red: red;
+$light-yellow: #ffa;
+$aoni: #cd4;
+$green-yellow: #cfc;
+
 #mapadmin {
   height: 500px;
   width: 100%;
+}
+
+/* ---- 別コンテンツのコピー ----*/
+/* ---- 管理者・業者トップページ ----*/
+#jumbo {
+  background: image-url('building.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  h2 {
+    text-shadow:2px 2px 1px #000088;
+    color: #ffffff;
+  }
+}
+
+.bg-color1 {
+  background-color: #f0e68c;
+}
+
+.bg-color2 {
+  background-color: #afeeee;
+}
+
+.top_menu div div {
+  border-radius: 10px;
+  height: 60px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.top_menu div a {
+  text-decoration: none;
+}
+
+/* ---- モデル検証エラー関係 ---- */
+#error_list {
+  color: #dc3545;
+}
+
+/* ---- header関係 ---- */
+.nav-button {
+  width: 100%;
+  &:hover {
+    color: #ffbbaa;
+  }
+  a {
+    div {
+      color: white;
+      &:hover {
+        color: #ffbbaa;
+      }
+    }
+    text-decoration: none;
+  }
+}
+
+/* ---- モデル関連 ---- */
+
+/* 見出し */
+.headline {
+  padding: 17px 30px;
+  margin: 10px 0px;
+  background-color: #ffddf1;
+  border-left: solid 10px #eb6ea0;
+  border-right: solid 10px #eb6ea0;
+  color: #56256e;
+  font-size: 2em;
+}
+
+/* 新規作成ボタン大 */
+.create_model {
+  margin: 5px 20px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bg-table-primary {
+  background: #f0f8ff;
+}
+
+.table-data-bottom {
+  border-bottom: solid 1px #aaf;
+}
+
+/* ---- 修繕依頼 ---- */
+.red-text {
+  color: $red;
+}
+
+.bg-light-yellow {
+  background: $light-yellow;  
+}
+
+.bg-select-org {
+  background: $aoni;  
+}
+
+.bg-newrecord {
+  background: $green-yellow;
 }

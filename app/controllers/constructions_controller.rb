@@ -20,10 +20,8 @@ class ConstructionsController < ApplicationController
   end
 
   def update
-    if @construction.update(construction_params)
-      redirect_to constructions_url
-    else
-      render :edit
+    unless @construction.update(construction_params)
+      @construction.name = Construction.find(params[:id]).name
     end
   end
 
