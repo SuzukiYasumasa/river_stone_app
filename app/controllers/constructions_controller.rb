@@ -1,12 +1,9 @@
 class ConstructionsController < ApplicationController
-  before_action :set_construction, only: [:edit, :update, :destroy]
+  before_action :set_construction, only: [:update, :destroy]
 
   def index
     @construction = Construction.new
     @constructions = Construction.all
-  end
-
-  def edit
   end
 
   def create
