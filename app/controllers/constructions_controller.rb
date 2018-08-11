@@ -9,7 +9,7 @@ class ConstructionsController < ApplicationController
   def create
     @construction = Construction.new(construction_params)
     if @construction.save
-      redirect_to constructions_url
+      redirect_to constructions_url, notice: "工事名を追加しました"
     else
       @constructions = Construction.all
       render :index
@@ -24,7 +24,7 @@ class ConstructionsController < ApplicationController
 
   def destroy
     @construction.destroy
-    redirect_to constructions_url
+    redirect_to constructions_url, notice: "工事名を削除しました"
   end
 
   private
