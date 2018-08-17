@@ -2,13 +2,13 @@ $red: red;
 $light-yellow: #ffa;
 $aoni: #cd4;
 $green-yellow: #cfc;
+$murasakisuisyo: #e7e7eb;
 
 #mapadmin {
   height: 500px;
   width: 100%;
 }
 
-/* ---- 別コンテンツのコピー ----*/
 /* ---- 管理者・業者トップページ ----*/
 #jumbo {
   background: image-url('building.jpg');
@@ -47,6 +47,42 @@ $green-yellow: #cfc;
 }
 
 /* ---- header関係 ---- */
+#head {
+  background: linear-gradient(-135deg, #E4A972, #9941D8);
+  height: 50px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.nav-item {
+  border-bottom: solid 3px $murasakisuisyo;
+  color: $murasakisuisyo;
+  height: 30px;
+  width: 100px;
+  margin: 10px 5px 0 0;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    background-color: rgba(0, 0, 255, 0.2);
+  }
+  &:active {
+    background: #fff;
+    border-bottom: solid 3px #55f;
+    color: #55f;
+  }
+}
+
+.inner {
+  vertical-align: middle;
+}
+
+#headmargin {
+  height: 50px;
+}
+
 .nav-button {
   width: 100%;
   &:hover {
@@ -61,6 +97,17 @@ $green-yellow: #cfc;
     }
     text-decoration: none;
   }
+}
+
+#log_in_icon {
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  background-color: rgba(0, 0, 255, 0.2);
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 10;
 }
 
 /* ---- モデル関連 ---- */
