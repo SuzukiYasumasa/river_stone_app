@@ -1,15 +1,17 @@
-<div id="head">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <%= link_to(constructions_path) do %><div class="nav-item"><span class="inner">工事名</span></div><% end %>
-        <%= link_to(points_path) do %><div class="nav-item"><span class="inner">地点</span></div><% end %>
-        <div class="nav-item"><span class="inner">ログアウト</span></div>
+<% if signed_in? %>
+  <div id="head">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <%= link_to(constructions_path) do %><div class="nav-item"><span class="inner">工事名</span></div><% end %>
+          <%= link_to(points_path) do %><div class="nav-item"><span class="inner">地点</span></div><% end %>
+          <%= link_to(users_path) do %><div class="nav-item"><span class="inner">ユーザー</span></div><% end %>
+          <%= link_to(destroy_user_session_path, method: "delete") do %><div class="nav-item"><span class="inner">ログアウト</span></div><% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div id="headmargin"></div>
-
-
-<div id="log_in_icon"><span class="inner">ログイン</span></div>
+  <div id="headmargin"></div>
+<% else %>
+  <%= link_to(new_user_session_path) do %><div id="log_in_icon"><span class="inner">ログイン</span></div><% end %>
+<% end %>
