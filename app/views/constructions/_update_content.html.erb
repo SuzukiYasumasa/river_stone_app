@@ -13,12 +13,25 @@
 <% end %>
 
 <%= form_with(model: @construction) do |form| %>
-  <div class="row table-data-bottom bg-table-primary mt-2 d-flex align-items-center">
+  <div class="row general-table-format d-flex align-items-center">
     <div class="col-12 col-md-5 col-lg-5 py-2"><%= @construction.name %></div>
     <div class="col-8 col-md-4 col-lg-5 field py-2 pl-2 pl-md-0 pr-1"><%= form.text_field :name, class: "form-control" %></div>
     <div class="col-4 col-md-3 col-lg-2 actions py-2 pl-0 pr-3 text-right">
       <%= form.submit '変更', class: "btn btn-outline-info btn-sm" %>
-      <%= link_to(@construction, method: :delete, data: { confirm: '本当に削除しますか?' }) do %><div class="btn btn-outline-danger btn-sm">削除</div><% end %>
+
+      <div class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete-conf<%= @construction.id %>">削除</div>
+      <div class="modal fade" id="delete-conf<%= @construction.id %>">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              本当に削除しますか？。<%= @construction.name %>に紐づけられている地点情報も同時に削除されます。<br>
+              <%= link_to(@construction, method: :delete) do %><div class="btn btn-outline-danger btn-sm m-2">は　い</div><% end %>
+              <div class="btn btn-outline-danger btn-sm m-2" data-dismiss="modal">いいえ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 <% end %>

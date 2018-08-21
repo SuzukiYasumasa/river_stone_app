@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      construction:
+        name: 工事名
+      point:
+        name: 地点名
+        longitude: 経度
+        latitude: 緯度
+        construction_id: 工事
+        release: 公開許可

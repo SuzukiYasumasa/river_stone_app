@@ -132,12 +132,11 @@ $murasakisuisyo: #e7e7eb;
   }
 }
 
-.bg-table-primary {
-  background: #f0f8ff;
-}
-
-.table-data-bottom {
+.general-table-format {
   border-bottom: solid 1px #aaf;
+  background: #f0f8ff;
+  height: 50px;
+  margin: 5px -15px 0px -15px;
 }
 
 /* ---- 修繕依頼 ---- */
