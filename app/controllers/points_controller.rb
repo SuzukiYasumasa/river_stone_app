@@ -1,4 +1,6 @@
 class PointsController < ApplicationController
+  skip_before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_point, only: [:show, :edit, :update, :destroy]
 
   def index

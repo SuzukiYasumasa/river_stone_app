@@ -28,11 +28,12 @@ class ConstructionsController < ApplicationController
   end
 
   private
-    def set_construction
-      @construction = Construction.find(params[:id])
-    end
 
-    def construction_params
-      params.require(:construction).permit(:name)
-    end
+  def set_construction
+    @construction = Construction.find(params[:id])
+  end
+
+  def construction_params
+    params.require(:construction).permit(:name)
+  end
 end

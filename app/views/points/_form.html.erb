@@ -1,19 +1,27 @@
 <%= form_with(model: point, local: true) do |form| %>
-  <% if point.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(point.errors.count, "error") %> prohibited this point from being saved:</h2>
-
-      <ul>
-      <% point.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row py-2 bg-newrecord">
+    <div class="col-12">
+      <%= render 'shared/error_messages', object: point %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field row form-group bg-newrecord">
+    <%= form.label :name, class: "col-12" %>
+    <%= form.text_field :name, class: "col-12 form-control" %>
+  </div>
+
+  <div class="field row form-group bg-newrecord">
+    <%= form.label :construction_id, class: "col-12" %>
+    <%= form.text_field :construction_id, class: "col-12 form-control" %>
+  </div>
+
+  <div class="field row form-group bg-newrecord">
+    <%= form.label :release, class: "col-12" %>
+    <%= form.check_box :release, class: "col-12" %>
+  </div>
+
+  <div class="actions row text-center bg-newrecord">
+    <%= form.submit class: "btn btn-info col-6" %>
   </div>
 
   <div class="field">
@@ -24,20 +32,6 @@
   <div class="field">
     <%= form.label :lat %>
     <%= form.text_field :lat %>
-  </div>
-
-  <div class="field">
-    <%= form.label :construction_id %>
-    <%= form.text_field :construction_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :release %>
-    <%= form.check_box :release %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>
 <br>
