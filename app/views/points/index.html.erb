@@ -9,10 +9,13 @@
   <div class="row table-data-bottom bg-table-primary mt-2 d-flex align-items-center">
     <div class="col-12 col-md-5 col-lg-5 py-2"><%= point.name %></div>
     <div class="col-4 col-md-3 col-lg-2 actions py-2 pl-0 pr-3 text-right">
-      <%= form.submit '変更', class: "btn btn-outline-info btn-sm" %>
       <%= link_to(point) do %><div class="btn btn-outline-danger btn-sm">詳細</div><% end %>
       <%= link_to(edit_point_path(point)) do %><div class="btn btn-outline-danger btn-sm">変更</div><% end %>
       <%= link_to(point, method: :delete, data: { confirm: '本当に削除しますか?' }) do %><div class="btn btn-outline-danger btn-sm">削除</div><% end %>
     </div>
   </div>
+<% end %>
+
+<% if @points.empty? %>
+  <div class="row mt-3">現在登録されている地点情報はありません</div>
 <% end %>

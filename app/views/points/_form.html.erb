@@ -5,33 +5,39 @@
     </div>
   </div>
 
-  <div class="field row form-group bg-newrecord">
-    <%= form.label :name, class: "col-12" %>
-    <%= form.text_field :name, class: "col-12 form-control" %>
+  <div class="field form-group row justify-content-around bg-newrecord py-2 mb-0">
+    <%= form.label :name, class: "col-11 col-sm-2 col-lg-1 col-form-label" %>
+    <%= form.text_field :name, class: "col-11 col-sm-9 col-lg-10 form-control" %>
   </div>
 
-  <div class="field row form-group bg-newrecord">
-    <%= form.label :construction_id, class: "col-12" %>
-    <%= form.text_field :construction_id, class: "col-12 form-control" %>
+  <div class="field form-group row justify-content-around bg-newrecord py-2 mb-0">
+    <%= form.label :construction_id, class: "col-11 col-sm-2 col-lg-1 col-form-label" %>
+    <%= form.collection_select :construction_id, Construction.all.order(:id), :id, :name, { include_blank: "選択してください" }, class: "col-11 col-sm-9 col-lg-10 form-control" %>
   </div>
 
-  <div class="field row form-group bg-newrecord">
-    <%= form.label :release, class: "col-12" %>
-    <%= form.check_box :release, class: "col-12" %>
+  <div class="field form-group row justify-content-around bg-newrecord py-2 mb-0 d-flex align-items-center">
+    <div class="col-11">
+      <%= form.label :release, class: "col-form-label" %>
+      <%= form.check_box :release %>
+    </div>
   </div>
 
-  <div class="actions row text-center bg-newrecord">
-    <%= form.submit class: "btn btn-info col-6" %>
+  <div class="actions row justify-content-around bg-newrecord py-2 text-center">
+    <%= form.submit class: "col-6 btn btn-info" %>
   </div>
 
-  <div class="field">
-    <%= form.label :lng %>
-    <%= form.text_field :lng %>
-  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="field">
+        <%= form.label :lng %>
+        <%= form.text_field :lng %>
+      </div>
 
-  <div class="field">
-    <%= form.label :lat %>
-    <%= form.text_field :lat %>
+      <div class="field">
+        <%= form.label :lat %>
+        <%= form.text_field :lat %>
+      </div>
+    </div>
   </div>
 <% end %>
 <br>
