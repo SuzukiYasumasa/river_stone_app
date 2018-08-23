@@ -1,0 +1,25 @@
+<% Construction.all.each do |cons| %>
+  <div class="row general-table-format d-flex align-items-center mt-5">
+    <%= cons.name %>
+  </div>
+  <% if cons.points.empty? %>
+    <div>この工事には登録地点がありません</div>
+  <% end %>
+  <% cons.points.each do |point| %>
+    <div class="row"><div class="offset-1 col-11"><%= point.name %></div></div>
+  <% end %>
+<% end %>
+
+
+
+<% @points.each do |point| %>
+  <div class="row general-table-format d-flex align-items-center">
+    <div class="col-4 py-2"><%= point.name %></div>
+    <div class="col-4 py-2"><%= point.release %></div>
+    <div class="col-4 py-2 pl-0 pr-3 text-right">
+      <%= link_to(point) do %><div class="btn btn-outline-primary btn-sm">詳細</div><% end %>
+      <%= link_to(edit_point_path(point)) do %><div class="btn btn-outline-info btn-sm">変更</div><% end %>
+      <%= link_to(point, method: :delete, data: { confirm: '本当に削除しますか?' }) do %><div class="btn btn-outline-danger btn-sm">削除</div><% end %>
+    </div>
+  </div>
+<% end %>

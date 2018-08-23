@@ -1,19 +1,16 @@
 <div class="row">
   <h1 class="headline col-12 rounded">地点</h1>
-  <div class="col-5">
-    <%= link_to(new_point_path) do %><div class="btn btn-primary btn-lg">新規地点登録</div><% end %>
-  </div>
+  <% if signed_in? %>
+    <div class="col-5">
+      <%= link_to(new_point_path) do %><div class="btn btn-primary btn-lg">新規地点登録</div><% end %>
+    </div>
+  <% end %>
 </div>
 
-<% @points.each do |point| %>
-  <div class="row table-data-bottom bg-table-primary mt-2 d-flex align-items-center">
-    <div class="col-12 col-md-5 col-lg-5 py-2"><%= point.name %></div>
-    <div class="col-4 col-md-3 col-lg-2 actions py-2 pl-0 pr-3 text-right">
-      <%= link_to(point) do %><div class="btn btn-outline-danger btn-sm">詳細</div><% end %>
-      <%= link_to(edit_point_path(point)) do %><div class="btn btn-outline-danger btn-sm">変更</div><% end %>
-      <%= link_to(point, method: :delete, data: { confirm: '本当に削除しますか?' }) do %><div class="btn btn-outline-danger btn-sm">削除</div><% end %>
-    </div>
-  </div>
+<% if signed_in? %>
+  <%= render 'sign_in_state' %>
+<% else %>
+  <%= render 'sign_out_state' %>
 <% end %>
 
 <% if @points.empty? %>
