@@ -6,15 +6,14 @@
     <div>この工事には地点登録がありません</div>
   <% end %>
   <% cons.points.each do |point| %>
-    <div class="point-contain">
     <div class="row">
-      <div class="offset-1 col-2 d-flex align-items-center py-1">
+      <div class="offset-1 col-2">
         <%= point.release %>
       </div>
-      <div class="col-5 d-flex align-items-center py-1">
+      <div class="col-5">
         <%= point.name %>
       </div>
-      <div class="col-4 d-flex align-items-center py-1">
+      <div class="col-4">
         <%= link_to(point) do %><div class="btn btn-outline-primary btn-sm">詳細</div><% end %>
         <%= link_to(edit_point_path(point)) do %><div class="btn btn-outline-info btn-sm">変更</div><% end %>
 
@@ -32,7 +31,6 @@
         </div>
 
       </div>
-    </div>
     </div>
   <% end %>
 <% end %>

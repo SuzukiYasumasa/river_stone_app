@@ -139,6 +139,11 @@ $murasakisuisyo: #e7e7eb;
   margin: 5px -15px 0px -15px;
 }
 
+/* ---- 地点 ---- */
+.point-contain:nth-of-type(even) > .row > div {
+  background: $murasakisuisyo;
+}
+
 /* ---- 修繕依頼 ---- */
 .red-text {
   color: $red;
