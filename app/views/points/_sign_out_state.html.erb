@@ -1,6 +1,9 @@
 <% Construction.all.each do |cons| %>
-  <div class="row general-table-format d-flex align-items-center mt-5">
-    <%= cons.name %>
+  <% if cons.points.find_by(release: true) %>
+  <div class="row">
+    <div class="col-12 visitor-construction">
+      <%= cons.name %>
+    </div>
   </div>
   <% if cons.points.empty? %>
     <div>この工事には地点登録がありません</div>
@@ -32,5 +35,6 @@
 
       </div>
     </div>
+  <% end %>
   <% end %>
 <% end %>
