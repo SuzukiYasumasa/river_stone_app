@@ -140,8 +140,14 @@ $murasakisuisyo: #e7e7eb;
 }
 
 /* ---- 地点 ---- */
-.point-contain:nth-of-type(even) > .row > div {
-  background: $murasakisuisyo;
+.badge-release {
+  color: #f0f0f0;
+  background: #f22;
+}
+
+.badge-private {
+  color: #f0f0f0;
+  background: #33f;
 }
 
 /* ---- 修繕依頼 ---- */

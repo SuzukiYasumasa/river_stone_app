@@ -9,10 +9,10 @@
 
 <% if @points.empty? %>
   <div class="row mt-3">現在登録されている地点情報はありません</div>
+<% elsif signed_in? %>
+  <%= render 'sign_in_state' %>
+<% elsif @points.find_by(release: true) %>
+  <%= render 'sign_out_state' %>
 <% else %>
-  <% if signed_in? %>
-    <%= render 'sign_in_state' %>
-  <% else %>
-    <%= render 'sign_out_state' %>
-  <% end %>
+  <div class="row mt-3">現在登録されている地点情報はありません</div>
 <% end %>
