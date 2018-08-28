@@ -1,40 +1,21 @@
 <% Construction.all.each do |cons| %>
   <% if cons.points.find_by(release: true) %>
-  <div class="row">
-    <div class="col-12 visitor-construction">
-      <%= cons.name %>
-    </div>
-  </div>
-  <% if cons.points.empty? %>
-    <div>この工事には地点登録がありません</div>
-  <% end %>
-  <% cons.points.each do |point| %>
     <div class="row">
-      <div class="offset-1 col-2">
-        <%= point.release %>
-      </div>
-      <div class="col-5">
-        <%= point.name %>
-      </div>
-      <div class="col-4">
-        <%= link_to(point) do %><div class="btn btn-outline-primary btn-sm">詳細</div><% end %>
-        <%= link_to(edit_point_path(point)) do %><div class="btn btn-outline-info btn-sm">変更</div><% end %>
-
-        <div class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete-conf<%= point.id %>">削除</div>
-        <div class="modal fade" id="delete-conf<%= point.id %>">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body text-center">
-                本当に削除しますか？。<br>
-                <%= link_to(point, method: :delete) do %><div class="btn btn-outline-danger btn-sm m-2">は　い</div><% end %>
-                <div class="btn btn-outline-danger btn-sm m-2" data-dismiss="modal">いいえ</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="col-12 visitor-construction">
+        <%= cons.name %>
       </div>
     </div>
-  <% end %>
+    <div class="row">
+      <div class="col-12 col-md-6 pl-0 pr-0 pr-md-2">
+        <% cons.points.where(release: true).limit(turning_point(cons)).each do |point| %>
+          <%= link_to(point) do %><div class="btn-point"><%= point.name %></div><% end %>
+        <% end %>
+      </div>
+      <div class="col-12 col-md-6 pl-0 pr-0 pr-md-2">
+        <% cons.points.where(release: true).offset(turning_point(cons)).each do |point| %>
+          <%= link_to(point) do %><div class="btn-point"><%= point.name %></div><% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 <% end %>

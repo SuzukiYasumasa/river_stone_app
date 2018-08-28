@@ -7,6 +7,7 @@ $(document).on('turbolinks:load', function(){
     $(this).children(".row").filter(':even').css('background', '#e7e7eb');
   });
 
+  $('.visitor-construction:first').css('margin-top', '0');
 });
 $(document).ready(function(){
 });

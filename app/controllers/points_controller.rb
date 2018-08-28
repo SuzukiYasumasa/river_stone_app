@@ -19,36 +19,24 @@ class PointsController < ApplicationController
 
   def create
     @point = Point.new(point_params)
-
-    respond_to do |format|
-      if @point.save
-        format.html { redirect_to @point, notice: 'Point was successfully created.' }
-        format.json { render :show, status: :created, location: @point }
-      else
-        format.html { render :new }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
-      end
+    if @point.save
+      redirect_to @point, notice: '地点情報を登録しました'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @point.update(point_params)
-        format.html { redirect_to @point, notice: 'Point was successfully updated.' }
-        format.json { render :show, status: :ok, location: @point }
-      else
-        format.html { render :edit }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
-      end
+    if @point.update(point_params)
+      redirect_to @point, notice: '地点情報を更新しました'
+    else
+      render :edit
     end
   end
 
   def destroy
     @point.destroy
-    respond_to do |format|
-      format.html { redirect_to points_url, notice: 'Point was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to points_url, notice: '地点情報を削除しました'
   end
 
   private
