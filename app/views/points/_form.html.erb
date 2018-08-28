@@ -40,13 +40,12 @@
     </div>
   </div>
 <% end %>
-<br>
-<div id="mapadmin"></div>
+<div class="row"><div class="col-12" id="mapview"></div></div>
 <script>
   var marker
   function initMap() {
     var point ={lat: <%= point.lat %>, lng: <%= point.lng %>};
-    var map = new google.maps.Map(document.getElementById('mapadmin'), {
+    var map = new google.maps.Map(document.getElementById('mapview'), {
       center: point,
       zoom: 17
     });

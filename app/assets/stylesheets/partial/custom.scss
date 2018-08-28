@@ -6,10 +6,11 @@ $green-yellow: #cfc;
 $murasakisuisyo: #e7e7eb;
 $grape: #460e44;
 $light-grape: #864e84;
+$gray5: #555;
+$nasukon: #824880;
 
-#mapadmin {
-  height: 500px;
-  width: 100%;
+#mapview {
+  height: 320px;
 }
 
 /* ---- 管理者・業者トップページ ----*/
@@ -177,6 +178,15 @@ $light-grape: #864e84;
   &:active {
     background: #800;
   }
+}
+
+#point_name_range {
+  font-size: 1.5em;
+  color: $nasukon;
+}
+
+.point-show {
+  color: $gray5;
 }
 
 /* ---- 修繕依頼 ---- */

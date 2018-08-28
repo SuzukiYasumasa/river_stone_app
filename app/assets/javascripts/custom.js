@@ -9,5 +9,10 @@ $(document).on('turbolinks:load', function(){
 
   $('.visitor-construction:first').css('margin-top', '0');
 });
+
+$(window).on('load resize', function(){
+  $('#mapview').css("height", $(window).height() - 50 + "px");
+});
+
 $(document).ready(function(){
 });
