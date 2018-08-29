@@ -8,9 +8,11 @@ $(document).on('turbolinks:load', function(){
   });
 
   $('.visitor-construction:first').css('margin-top', '0');
+
+  $('#mapview').css("height", $(window).height() - 50 + "px");
 });
 
-$(window).on('load resize', function(){
+$(window).on('resize', function(){
   $('#mapview').css("height", $(window).height() - 50 + "px");
 });
 
