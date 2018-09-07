@@ -2,19 +2,24 @@
   <div id="head">
     <div class="container">
       <div class="row">
+
         <div class="col-12 d-none d-sm-block">
-          <%= link_to(constructions_path) do %><div class="nav-item"><span class="inner">工事名</span></div><% end %>
-          <%= link_to(points_path) do %><div class="nav-item"><span class="inner">地点</span></div><% end %>
-          <%= link_to(users_path) do %><div class="nav-item"><span class="inner">ユーザー</span></div><% end %>
-          <%= link_to(destroy_user_session_path, method: "delete") do %><div class="nav-item"><span class="inner">サインアウト</span></div><% end %>
+          <%= render 'layouts/nav_buttons' %>
         </div>
+
         <div class="col-12 d-sm-none">
-          <%= link_to("#", class: "menu-trigger") do %>
+          <div class="menu-trigger">
             <span></span>
             <span></span>
             <span></span>
-          <% end %>
+          </div>
         </div>
+
+        <div id="background-shadow"></div>
+        <div id="hamburger-menu">
+          <%= render 'layouts/nav_buttons' %>
+        </div>
+
       </div>
     </div>
   </div>
