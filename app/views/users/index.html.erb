@@ -3,7 +3,7 @@
   <%= link_to "新規作成", new_user_registration_path, class: "btn-lg btn-primary create_model" %>
 </div>
 <% @users.each do |user| %>
-  <div class="row general-table-format d-flex align-items-center">
+  <div class="row general-table-format general-table-format-height d-flex align-items-center">
     <div class="col-9 col-sm-10"><%= user.email %></div>
     <% unless user.admin %>
       <div class="col-3 col-sm-2">

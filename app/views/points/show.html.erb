@@ -31,23 +31,6 @@
       position: point,
       map: map
     });
-    map.addListener('click', function(e){
-      getClickLatLng(e.latLng, map);
-    });
-  }
-  function getClickLatLng(latlng, map){
-    //既存マーカー削除
-    marker.setMap(null);
-    //マーカー追加
-    marker = new google.maps.Marker({
-      position: latlng,
-      map: map
-    });
-    //座標の中心をずらす
-    map.panTo(latlng);
-    //フォームの値を更新※小数第6位までにする！
-    $("#point_lat").val(latlng.lat());
-    $("#point_lng").val(latlng.lng());
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['G_API_KEY'] %>&callback=initMap" async defer></script>
