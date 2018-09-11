@@ -22,27 +22,16 @@
     </div>
   </div>
 
+  <%= form.hidden_field :lng %>
+  <%= form.hidden_field :lat %>
+
   <div class="actions row justify-content-around bg-newrecord py-2 text-center">
     <%= form.submit class: "col-6 btn btn-info" %>
-  </div>
-
-  <div class="row">
-    <div class="col-12">
-      <div class="field">
-        <%= form.label :lng %>
-        <%= form.text_field :lng %>
-      </div>
-
-      <div class="field">
-        <%= form.label :lat %>
-        <%= form.text_field :lat %>
-      </div>
-    </div>
   </div>
 <% end %>
 <div class="row"><div class="col-12" id="mapview"></div></div>
 <script>
-  var marker
+  var marker;
   function initMap() {
     var point ={lat: <%= point.lat %>, lng: <%= point.lng %>};
     var map = new google.maps.Map(document.getElementById('mapview'), {
