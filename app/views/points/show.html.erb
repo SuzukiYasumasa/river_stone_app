@@ -22,15 +22,36 @@
 <script>
   var marker
   function initMap() {
+    /* 地図センターの座標 */
     var point ={lat: <%= @point.lat %>, lng: <%= @point.lng %>};
+
+    /* 地図を起こす */
     var map = new google.maps.Map(document.getElementById('mapview'), {
       center: point,
       zoom: 17
     });
-    marker = new google.maps.Marker({
+
+    /* マーカーを起こす */
+    var marker = new google.maps.Marker({
       position: point,
       map: map
     });
+
+    /* インフォウインドウの内容 */
+    var contentString = '<div><%= @point.name %></div>';
+
+    /* インフォウインドウインスタンスを生成 */
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    /* インフォウインドウを起こす(初期) */
+    infowindow.open(map, marker);
+
+    /* インフォウインドウを起こす(再表示用) */
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });    
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['G_API_KEY'] %>&callback=initMap" async defer></script>
