@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-xl-6" id="point_name_range"><%= @point.name %></div>
     <div class="col-12 col-xl-6 d-flex align-items-end"><%= @point.construction.name %></div>
-    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 d-flex align-items-end mt-0 mt-sm-2">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 d-flex align-items-end mt-0 mt-sm-2 nobr">
       地図が表示されない場合は<%= link_to "こちら", point_url(@point.lng, @point.lat), target: "_blank" %>
     </div>
     <div class="col-12 col-sm-6 col-md-7 col-lg-8 col-xl-9 d-flex align-items-center mt-2">
@@ -32,7 +32,7 @@
     });
 
     /* マーカーを起こす */
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       position: point,
       map: map
     });
