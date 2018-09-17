@@ -46,7 +46,7 @@
     });
 
     /* インフォウインドウを起こす(初期) */
-    infowindow.open(map, marker);
+    setTimeout(function(){infowindow.open(map, marker);}, 1000);
 
     /* インフォウインドウを起こす(再表示用) */
     marker.addListener('click', function(){
