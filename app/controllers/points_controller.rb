@@ -8,6 +8,11 @@ class PointsController < ApplicationController
   end
 
   def show
+    if signed_in?
+      @points = Point.where('construction_id = ?', @point.construction_id)
+    else
+      @points = Point.where('construction_id = ? AND release = ?', @point.construction_id, true)
+    end
   end
 
   def new

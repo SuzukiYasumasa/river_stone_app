@@ -20,38 +20,49 @@
 </div>
 <div class="row"><div class="col-12" id="mapview"></div></div>
 <script>
-  var marker;
   function initMap() {
-    /* 地図センターの座標 */
+    //地図センターの座標
     var point ={lat: <%= @point.lat %>, lng: <%= @point.lng %>};
 
-    /* 地図を起こす */
+    //地図を起こす
     var map = new google.maps.Map(document.getElementById('mapview'), {
       center: point,
       zoom: 17
     });
 
-    /* マーカーを起こす */
-    marker = new google.maps.Marker({
-      position: point,
-      map: map
-    });
+    //同一工事の地点のマーカーも立てる
+    <% @points.each do |genba| %>
+      //マーカーを起こす@pointだけ赤色その他は緑色
+      <% if genba.name != @point.name %>
+        var marker<%= genba.id %> = new google.maps.Marker({
+          position: {lat: <%= genba.lat %>, lng: <%= genba.lng %>},
+          map: map,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        });
+      <% else %>
+        var marker<%= genba.id %> = new google.maps.Marker({
+          position: {lat: <%= genba.lat %>, lng: <%= genba.lng %>},
+          map: map
+        });
+      <% end %>
 
-    /* インフォウインドウの内容 */
-    var contentString = '<div><%= @point.name %></div>';
+      //インフォウインドウインスタンスを生成
+      var infoWindow<%= genba.id %> = new google.maps.InfoWindow({
+        content: '<div><%= genba.name %></div>'
+      });
 
-    /* インフォウインドウインスタンスを生成 */
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
+      //インフォウインドウを起こす(初期)
+      infoWindow<%= genba.id %>.open(map, marker<%= genba.id %>);
 
-    /* インフォウインドウを起こす(初期) */
-    setTimeout(function(){infowindow.open(map, marker);}, 1000);
+      //インフォウインドウを起こす(再表示用)
+      marker<%= genba.id %>.addListener('click', function(){
+        infoWindow<%= genba.id %>.open(map, marker<%= genba.id %>);
+      });
 
-    /* インフォウインドウを起こす(再表示用) */
-    marker.addListener('click', function(){
-      infowindow.open(map, marker);
-    });    
+    <% end %>
+
+    //座標の中心をずらす
+    setTimeout(function() {map.panTo({lat: <%= @point.lat %>, lng: <%= @point.lng %>});}, 1000);
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['G_API_KEY'] %>&callback=initMap" async defer></script>
