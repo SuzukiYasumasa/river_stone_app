@@ -30,6 +30,27 @@
       zoom: 17
     });
 
+    //マーカーを起こす
+    var marker = new google.maps.Marker({
+      position: point,
+      map: map
+    });
+
+    //インフォウインドウインスタンスを生成
+    var infoWindow = new google.maps.InfoWindow({
+      content: '<div><%= @point.name %></div>'
+    });
+
+    //インフォウインドウを起こす(初期)
+    infoWindow.open(map, marker);
+
+    //インフォウインドウを起こす(再表示用)
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });
+
+
+    /*地図中心が思い通り（@point.lat,@point.lng）にならない
     //同一工事の地点のマーカーも立てる
     <% @points.each do |genba| %>
       //マーカーを起こす@pointだけ赤色その他は緑色
@@ -63,6 +84,7 @@
 
     //座標の中心をずらす
     setTimeout(function() {map.panTo({lat: <%= @point.lat %>, lng: <%= @point.lng %>});}, 1000);
+    */
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['G_API_KEY'] %>&callback=initMap" async defer></script>
