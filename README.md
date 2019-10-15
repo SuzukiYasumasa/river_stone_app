@@ -1,24 +1,6 @@
-# README
+# 住所を持たない地点を指し示すためのWebページ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 関係者と地点情報を共有する目的で作成した。
+- Google Maps JavaScript API を利用した。
+- 画面幅により表示の仕方を調整するためパソコンでもスマートフォンでも閲覧可能である。
+- 管理者のみ地点情報の登録・変更・削除を行うことができる。
